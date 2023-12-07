@@ -1,0 +1,14 @@
+n, m, k = map(int, input().split())
+data = list(map(int, input().split()))
+k2, result = 0, 0
+
+data.sort(reverse = True)
+for _ in range(m):
+    if (k2 < k):    
+        result += data[0]
+        k2 += 1
+    else:
+        result += data[1]
+        k2 = 0
+
+print(result)
