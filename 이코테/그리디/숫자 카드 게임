@@ -1,0 +1,24 @@
+# 나의 풀이
+n, m = map(int, input().split())
+data = list()
+minNum = 0
+
+for i in range(n):
+    data.append(list(map(int, input().split())))
+
+for i in range(n):
+    data[i].sort()
+    minNum = data[i][0] if minNum < data[i][0] else minNum
+
+print(minNum)
+
+# 모범 답안
+n, m = map(int, input().split())
+result = 0
+
+for i in range(n):
+    data = list(map(int, input().split()))
+    min_value = min(data)
+    result = max(result,min_value)
+
+print(result)
