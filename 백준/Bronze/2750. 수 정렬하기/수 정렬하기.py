@@ -1,20 +1,12 @@
-import sys
-sys.setrecursionlimit(10**6)
 n = int(input())
-data = [int(input()) for _ in range(n)]
+array = [int(input()) for _ in range(n)]
 
-def quick_sort(array):
-    if len(array) <= 1:
-        return array
+for i in range(len(array)):
+    min_index = i
+    for j in range(i + 1, len(array)):
+        if array[min_index] > array[j]:
+            min_index = j
+    array[i], array[min_index] = array[min_index], array[i]
 
-    pivot = array[0]
-    tail = array[1:]
-
-    left_side = [i for i in tail if i <= pivot]
-    right_side = [i for i in tail if i > pivot]
-
-    return quick_sort(left_side) + [pivot] + quick_sort(right_side)
-
-answer = quick_sort(data)
-for i in answer:
+for i in array:
     print(i)
