@@ -8,12 +8,14 @@ def solution(numbers):
         for j in itertools.permutations(number, i+1):
             num.append(int(''.join(j)))
     num_list = list(set(num))
+    
     if 1 in num_list:num_list.remove(1)
     if 0 in num_list:num_list.remove(0)
+    
     answer = len(num_list)
 
     for i in num_list:
-        for j in range(2, i):  # 2부터 x-1까지의 모든 숫자
+        for j in range(2, i):  # 2부터 i-1까지의 모든 숫자
             if i % j == 0:
                 answer -= 1
                 break
