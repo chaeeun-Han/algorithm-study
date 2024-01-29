@@ -7,7 +7,7 @@ def solution(prices):
     while queue:
         price = queue.popleft()
         sec = 0
-        for q in queue:
+        for q in queue: # 슬라이스
             sec += 1
             if price > q:
                 break 
