@@ -1,6 +1,5 @@
 def solution(s):
-    answer = ''
-    num = list(map(int, s.split()))
+    int_list = [int(str) for str in s.split(" ")]
 
-    answer = str(min(num)) + " " + str(max(num))
+    answer = str(min(int_list)) + " " + str(max(int_list))
     return answer
