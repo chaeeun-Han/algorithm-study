@@ -1,16 +1,18 @@
-from collections import deque
 def solution(s):
-    queue = deque()
+    stack = []
     
-    for i in s:
-        if i == '(':
-            queue.append(i)
-        elif i == ")":
-            if queue:
-                queue.popleft()
+    try:
+        for value in s:
+            if value == '(':
+                stack.append(1)
             else:
-                return False
-    
-    if queue:
+                stack.pop()
+    # pop을 더이상 할 수 없는 경우 False
+    except IndexError:
         return False
+
+    # stack에 값이 존재하는 경우 False
+    if (stack):
+        return False
+
     return True
