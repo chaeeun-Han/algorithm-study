@@ -1,21 +1,18 @@
-# BFS
 def solution(numbers, target):
-    leaves = [0]            
-    count = 0 
+    cnt = 0
+    
+    def dfs(idx, nsum):
+        nonlocal cnt
+        
+        # numbers idx 끝까지 갔고, nsum이 target과 같으면 True
+        if (idx == len(numbers)):
+            if (nsum == target):
+                cnt += 1
+            return
 
-    for num in numbers : 
-        temp = []
-	
-        # 자손 노드 생성 
-        for leaf in leaves : 
-            temp.append(leaf + num)    
-            temp.append(leaf - num)    
-
-        leaves = temp 
-
-    # target과 같은지 확인 
-    for leaf in leaves : 
-        if leaf == target : 
-            count += 1
-
-    return count
+        dfs(idx+1, nsum + numbers[idx])
+        dfs(idx+1, nsum - numbers[idx])
+    
+    dfs(0, 0)
+        
+    return cnt
